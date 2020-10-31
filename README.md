@@ -4,7 +4,7 @@ Python 3.7.6
 Install requirements:
 `pip install -r requirements.txt`
 Run 
-`python hw4.py <path>`
+`python hw4.py`
 
 ## Example output
 ```
