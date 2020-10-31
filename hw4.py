@@ -16,12 +16,8 @@ from prettytable import PrettyTable
 
 # TODO 1 & 2
 def read_tweets():
-	file = " ".join(sys.argv[1:]) # Accounts for spaces in path
-	try:
-		return pd.read_csv(file, usecols=["airline_sentiment", "airline", "text"])
-	except:
-		print("Usage: python hw4.py <path>")
-		exit()
+	return pd.read_csv("https://raw.githubusercontent.com/djm160830/twt-airline-sa/master/archive/Tweets.csv", 
+		usecols=["airline_sentiment", "airline", "text"])
 
 # TODO 3
 def preprocess(data):
