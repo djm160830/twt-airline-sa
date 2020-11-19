@@ -1,8 +1,3 @@
-# NAME:			Darla Maneja
-# EMAIL:		djm160830@utdallas.edu
-# SECTION:		CS4372.001
-# Assignment 4
-
 import sys
 import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
