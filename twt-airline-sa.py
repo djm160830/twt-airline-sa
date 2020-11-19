@@ -40,7 +40,7 @@ def preprocess(data):
 if __name__ == "__main__":
 	t = PrettyTable(['ITERATION', 'ALPHA', 'FIT_PRIOR', 'ACCURACY'])
 
-	# TODO 7:  Repeat this process 5 times with different parameter choices and output the parameters and accuracy in a tabular format.
+	# TODO 7:  Repeat process 5 times with different parameter choices and output the parameters and accuracy in a tabular format.
 	for i, a in enumerate(np.linspace(0.2, 1.25, 5)):
 		for _, fp in enumerate([False, False, False, True, True, True]):
 			"""
@@ -50,7 +50,7 @@ if __name__ == "__main__":
 			df = read_tweets()
 
 			"""
-			TODO 3: Perform the following text preprocessing steps: 
+			TODO 3: Text preprocessing steps: 
 			- convert text to lowercase, 
 			- transform the text using countvectorizer and tfidftransformer,
 			- convert airline_sentiment from categorical to numerical values using labelencoder
@@ -60,10 +60,10 @@ if __name__ == "__main__":
 			# TODO 4: Split data into training and testing (10% testing) using train_test_split from scikit learn
 			X_train, X_test, y_train, y_test = train_test_split(counts, y_encoded, test_size=0.1)
 
-			# TODO 5: Build a Multinomial Naïve Bayes (MNB) model using the training dataset. You have to choose the best set of parameters.
+			# TODO 5: Build a Multinomial Naïve Bayes (MNB) model using the training dataset
 			model = MultinomialNB(alpha=a, fit_prior=fp).fit(X_train, y_train)
 
-			# TODO 6: Apply your model on test and output the accuracy
+			# TODO 6: Apply model on test and output the accuracy
 			predicted = model.predict(X_test)
 			accuracy = model.score(X_test, y_test)
 			t.add_row([i+1, a, fp, accuracy])
@@ -71,11 +71,8 @@ if __name__ == "__main__":
 	print(t)
 
 	"""
-	TODO 8: Answer this question-
-	- The following is not related to naïve Bayes, but you can use the above data to answer the
-	following question:
-	Using the numeric value of airline_sentiment, output the average sentiment of each airline and
-	report which airline has the highest positive sentiment.
+	TODO 8: Outputting the average sentiment of each airline and
+	reporting which airline has the highest positive sentiment.
 	""" 
 	df['airline_sentiment'] = y_encoded
 	highest_sentiment = df.groupby('airline').agg(mean_sentiment=('airline_sentiment', 'mean')).sort_values(by='mean_sentiment', ascending=False)
