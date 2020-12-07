@@ -7,7 +7,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
 import numpy as np
 from prettytable import PrettyTable
-
+ 
 
 # TODO 1 & 2
 def read_tweets():
